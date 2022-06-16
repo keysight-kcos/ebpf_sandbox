@@ -1,0 +1,34 @@
+Output from running command: sudo bpftrace --unsafe testing.bt
+Ran this on a VM with 6 cores.
+
+Attaching 7 probes...
+Executing ./driver...
+Number of cores on machine: 6
+PID of started process: 19772
+CPU Mask of started process: &[3f 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Number of CPUs in mask: 6
+
+After changing CPU affinity:
+CPU Mask of started process: &[3e 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Number of CPUs in mask: 5
+
+After changing CPU affinity:
+CPU Mask of started process: &[3c 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+Number of CPUs in mask: 4
+
+CONDITIONAL: tracepoint:syscalls:sys_exit_execve, driver 
+CONDITIONAL: tracepoint:syscalls:sys_enter_execve, driver 
+tracepoint:syscalls:sys_enter_sched_setaffinity, driver, 19767 
+tracepoint:syscalls:sys_exit_sched_setaffinity, driver, 19767 
+tracepoint:syscalls:sys_enter_sched_setaffinity, driver, 19767 
+tracepoint:syscalls:sys_exit_sched_setaffinity, driver, 19767 
+# of syscalls called from driver: @: 296
+
+# of syscalls called from driver: @: 296
+
+# of syscalls called from driver: @: 296
+
+
+
+@: 296
+

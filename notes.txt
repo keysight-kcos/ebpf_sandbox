@@ -1,0 +1,4 @@
+Trace processes calling sleep.
+bpftrace -e 'kprobe:do_nanosleep { printf("%d sleeping\n", pid); }'
+
+tracepoint:syscalls:sys_enter_sched_setaffinity
