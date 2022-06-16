@@ -1,0 +1,6 @@
+#include <linux/sched.h>
+
+tracepoint:syscalls:sys_*_execve /comm == "dummyprocess" | curtask->parent->comm == "dummyprocess"/ { 
+	printf("%s, %s, %d ppid: %d\n", probe, comm, pid, curtask->parent->pid);
+}
+

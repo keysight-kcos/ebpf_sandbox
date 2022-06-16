@@ -1,9 +1,20 @@
 package main
 
-import "time"
+import (
+	"log"
+	"os/exec"
+	"time"
+)
 
 func main() {
-	for i := 0; i < 5; i++ {
+	numChildren := 5
+
+	for i := 0; i < numChildren; i++ {
 		time.Sleep(time.Second)
+		cmd := exec.Command("./dummychild")
+		err := cmd.Start()
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
